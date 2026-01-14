@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIVERSITY MARKS GRADING SYSTEM</title>
+
+    <style>
+        :root {
+            --primary-blue: #9c7326;
+            --bg-gradient: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            --card-bg: #ffffff;
+            --text-main: #1c9b51;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 1rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #209439;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .button-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        .btn-calc {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-grade {
+            background-color: #848a35;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .results {
+            margin-top: 1.5rem;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+            gap: 60px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-weight: 500;
+            gap: 4px;
+        }
+
+        .error-container{
+            display:none; 
+            background-color: #fee2e2; 
+            border-left: 4px solid #ef4444; 
+            padding: 10px; 
+            margin-bottom: 15px; 
+            border-radius: 4px;
+        }
+        .error-list{
+            color: #b91c1c; 
+            margin: 0; 
+            padding-left: 20px; 
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>UNIVERSITY MARKS GRADING SYSTEM</h2>
+
+        <div class="input-group">
+            <label>JAVA </label>
+            <input type="number" id="java">
+        </div>
+
+        <div class="input-group">
+        PYTHON: <input type="number" id="python">
+        </div>
+
+        <div class="input-group">
+           C++: <input type="number" id="cpp" >
+        </div>
+
+        <div class="input-group">
+            PASCAL: <input type="number" id="pascal">
+        </div>
+
+        <div class="button-row">
+            <button class="btn-calc" onclick="calculate('total')">TOTAL</button>
+            <button class="btn-calc" onclick="calculate('average')">AVERAGE</button>
+            <button class="btn-grade" onclick="calculate('grade')">Student grade GRADE</button>
+        </div>
+
+        <div class="results" style="display: flex;">
+            <div class="result-item">Total: <span id="resTotal"> 0 </span>/100</div>
+            <div class="result-item">Average: <span id="resAvg"> 0 </span>%</div>
+            <div class="result-item">Grade: <span id="resGrade"> </span> </div>
+        </div>
+
+        <div id="error-container">
+            <ul id="error-list" style="color: #735dc2; margin: 0; padding-left: 20px; font-size: 0.9rem;">
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
